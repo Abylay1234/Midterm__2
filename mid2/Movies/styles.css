@@ -1,0 +1,396 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: rgba(16, 14, 25, 0);
+  }
+  
+  header {
+    text-align: center;
+    padding: 1rem;
+    color: white;
+  }
+  
+  #searchInput {
+    width: 60%;
+    padding: 10px;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  main {
+    padding: 20px;
+  }
+  
+  .carousel-slide {
+    position: relative;
+    width: 180px;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .carousel-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 0.3s ease;
+  }
+  
+
+  
+  .carousel-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0; /* Скрываем информацию по умолчанию */
+    color: white;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    transition: opacity 0.3s ease;
+  }
+  
+  .carousel-overlay p {
+    margin: 5px 0;
+  }
+  
+  .carousel-slide:hover .carousel-overlay {
+    opacity: 1; /* Показываем информацию при наведении */
+  }
+  
+  .carousel-slide:hover .carousel-image {
+    opacity: 0.3; /* Затемняем картинку при наведении */
+  }
+  
+  #moviesGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 180px); /* 5 колонок по 180px */
+    grid-template-rows: repeat(9, 200px); /* 9 строк по 200px */
+    gap: 10px; /* Расстояние между карточками */
+    justify-content: center; /* Центрирование сетки */
+    padding: 10px;
+  }
+  #moviesGrid {
+    display: grid;
+    grid-template-columns: repeat(5, 180px); /* 5 колонок по 180px */
+    grid-template-rows: repeat(15, 200px); /* 9 строк по 200px */
+    gap: 10px; /* Расстояние между карточками */
+    justify-content: center; /* Центрирование сетки */
+    padding: 10px;
+  }
+  
+  .movie-card {
+    width: 180px;
+    height: 200px;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .movie-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  
+  .wishlist-button {
+    padding: 10px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+
+  button {
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  .movie-title {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .movie-info {
+    font-size: 12px;
+  }
+  
+  .add-to-watchlist {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .add-to-watchlist img {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Стили для кнопки "My Wishlist" */
+#myWishlistButton {
+    padding: 10px;
+    margin-left: 20px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #myWishlistButton:hover {
+    background-color: #e040fb;
+  }
+  
+  /* Стили для модального окна (избранного) */
+  #watchlistModal {
+    width: 80%;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+  }
+  
+  #watchlistGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  .movie-card {
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .movie-title {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px;
+    font-weight: bold;
+  }
+  
+  .movie-info {
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 3px;
+  }
+  
+  .remove-from-watchlist {
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 5px;
+  }
+  
+  
+  .carousel-container {
+    position: relative;
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+  }
+  
+  .carousel-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .carousel-container > div {
+    flex: 0 0 auto;
+    width: 200px; /* Уменьшаем ширину карточки */
+    height: 150px;
+    background-color: #ddd;
+    border-radius: 8px;
+    scroll-snap-align: center;
+  }
+  
+  /* Секция "Самое интересное" */
+  #interestingSection {
+    margin-top: 40px;
+  }
+  
+  #interestingSection h2 {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  /* Секция сортировки фильмов */
+  #sortingSection {
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  #sortingSection select {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  /* Модальные окна */
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+  }
+  
+  .modal.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .modal.active {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  
+  .main-carousel .carousel-slide {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 60vh; /* Основной баннер высотой 60% от высоты экрана */
+    border-radius: 8px;
+  }
+  
+  .main-carousel .carousel-container > div {
+    flex: 0 0 auto;
+    width: 777px; /* Уменьшаем ширину карточки */
+    height: 440px;
+    background-color: #ddd;
+    border-radius: 8px;
+    scroll-snap-align: center;
+  }
+  
+  .main-carousel .carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .main-carousel .carousel-text {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px;
+    border-radius: 8px;
+    max-width: 70%;
+  }
+  
+  .main-carousel .carousel-button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+  }
+  
+  .custom-carousel .carousel-slide {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Пропорция 16:9 */
+    border-radius: 8px;
+  }
+  
+  .custom-carousel .carousel-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .custom-carousel .carousel-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 5px;
+    max-width: 90%;
+  }
+  
+  .custom-carousel .carousel-button {
+    margin-top: 5px;
+    padding: 5px 10px;
+    background-color: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  
+  @media (max-width: 768px) {
+    .main-carousel .carousel-slide {
+      height: 40vh; /* Уменьшение высоты для мобильных устройств */
+    }
+  
+    .custom-carousel .carousel-slide {
+      padding-top: 75%; /* Сделать изображения более квадратными на мобильных устройствах */
+    }
+  }
+  

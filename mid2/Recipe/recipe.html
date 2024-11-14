@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recipe App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+  <header>
+    <h1>Recipe Finder</h1>
+    <input type="text" id="searchInput" placeholder="Search for recipes...">
+    <div id="suggestions"></div>
+  </header>
+
+  <main>
+    <!-- Элемент details для избранных рецептов -->
+    <details id="favoritesDetails">
+      <summary id="favoritesSummary">Favorites</summary>
+      <div id="favoritesContent">
+        <div id="favoritesGrid"></div>
+      </div>
+    </details>
+
+    <section id="recipesGrid"></section>
+    
+    <!-- Модальное окно для рецепта -->
+    <div id="modal" class="hidden">
+      <span id="closeModal">×</span>
+      <div id="modalContent"></div>
+    </div>
+  </main>
+
+  <footer>
+    <p>Recipe App - 2024</p>
+  </footer>
+</body>
+</html>

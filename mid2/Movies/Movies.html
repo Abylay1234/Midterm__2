@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movies App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Movies App</h1>
+    <input type="text" id="searchInput" placeholder="Search for movies...">
+    <button id="watchlistButton">My Wishlist</button> <!-- Кнопка My Wishlist -->
+</header>
+
+  <main>
+    <!-- Главный карусель с вертикальным расположением карточек -->
+    <section id="bigCarousel" class="main-carousel">
+      <div class="carousel-container vertical-carousel" id="carouselMovies"></div>
+    </section>
+
+    <!-- Самое интересное -->
+    <section id="interestingSection" class="custom-carousel">
+      <h2>Самое интересное</h2>
+      <div class="carousel-container" id="carouselInteresting"></div>
+    </section>
+
+    <!-- Сортировка фильмов -->
+    <section id="sortingSection">
+      <h2>Сортировать фильмы</h2>
+      <select id="sortBy">
+        <option value="popularity.desc">По популярности</option>
+        <option value="release_date.desc">По дате выхода</option>
+        <option value="vote_average.desc">По рейтингу</option>
+      </select>
+    </section>
+
+    <!-- Сетка фильмов -->
+    <section id="moviesGridSection">
+      <div id="moviesGrid"></div>
+    </section>
+  </main>
+
+  <!-- Модальное окно фильма -->
+  <div id="movieModal" class="modal hidden">
+    <div id="modalContent"></div>
+    <button id="closeModal">Close</button>
+    <button id="wishlistButtonInModal" class="wishlist-button">Add to Wishlist</button>
+  </div>
+
+  <!-- Модальное окно избранного -->
+  <div id="watchlistModal" class="modal hidden">
+    <h2>Watchlist</h2>
+    <div id="watchlistGrid"></div>
+    <button id="closeWatchlist">Close</button>
+  </div>
+
+</body>
+</html>
